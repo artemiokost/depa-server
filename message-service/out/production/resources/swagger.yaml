@@ -1,0 +1,188 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Comment service
+servers:
+  - url: http://api.depa.io/
+paths:
+  /test:
+    get:
+      security:
+        - bearerAuth: []
+      operationId: test
+      responses:
+        200:
+          description: Test
+        default:
+          description: unexpected error
+  /comment/{commentId}:
+    delete:
+      security:
+        - bearerAuth: []
+      operationId: deleteCommentById
+      parameters:
+        - in: path
+          name: commentId
+          required: true
+          description: Comment id
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Status
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+        default:
+          description: unexpected error
+  /comment/{commentId}/vote/{value}:
+    post:
+      security:
+        - bearerAuth: []
+      operationId: createVoteByCommentId
+      parameters:
+        - in: path
+          name: commentId
+          required: true
+          description: Comment id
+          schema:
+            type: integer
+        - in: path
+          name: value
+          required: true
+          description: Vote value
+          schema:
+            type: boolean
+      responses:
+        200:
+          description: Vote
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+        default:
+          description: unexpected error
+  /comment/list/{size}:
+    get:
+      operationId: getCommentList
+      parameters:
+        - in: path
+          name: size
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: List
+        default:
+          description: unexpected error
+  /comment/post/{postId}:
+    post:
+      security:
+        - bearerAuth: []
+      operationId: createCommentByPostId
+      parameters:
+        - in: path
+          name: postId
+          required: true
+          description: Post id
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - content
+              properties:
+                content:
+                  type: string
+                  minLength: 4
+      responses:
+        200:
+          description: Status
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+        default:
+          description: unexpected error
+  /comment/page/{number}/{size}/post/{postId}:
+    get:
+      operationId: getCommentPageByPostId
+      parameters:
+        - in: path
+          name: number
+          required: true
+          schema:
+            type: integer
+        - in: path
+          name: size
+          required: true
+          schema:
+            type: integer
+        - in: path
+          name: postId
+          required: true
+          description: Post id
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Page
+        default:
+          description: unexpected error
+  /comment/vote/{voteId}:
+    delete:
+      security:
+        - bearerAuth: []
+      operationId: deleteCommentVoteById
+      parameters:
+        - in: path
+          name: voteId
+          required: true
+          description: Comment id
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Status
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+        default:
+          description: unexpected error
+    put:
+      security:
+        - bearerAuth: []
+      operationId: updateCommentVoteById
+      parameters:
+        - in: path
+          name: voteId
+          required: true
+          description: Vote id
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: boolean
+      responses:
+        200:
+          description: Status
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+        default:
+          description: unexpected error
+components:
+  responses:
+    UnauthorizedError:
+      description: Access token is missing or invalid
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

@@ -1,0 +1,8 @@
+rootProject.name = "depa-server"
+
+include "api-gateway"
+include "common"
+include "message-service"
+include "post-service"
+include "user-service"
+

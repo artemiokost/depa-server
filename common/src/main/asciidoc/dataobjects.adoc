@@ -1,0 +1,32 @@
+= Cheatsheets
+
+[[Event]]
+== Event
+
+
+[cols=">25%,25%,50%"]
+[frame="topbot"]
+|===
+^|Name | Type ^| Description
+|[[action]]`@action`|`String`|-
+|[[payload]]`@payload`|`Json object`|-
+|[[type]]`@type`|`String`|-
+|===
+
+[[Tracking]]
+== Tracking
+
+
+[cols=">25%,25%,50%"]
+[frame="topbot"]
+|===
+^|Name | Type ^| Description
+|[[actionId]]`@actionId`|`Number (Long)`|-
+|[[createdAt]]`@createdAt`|`String`|-
+|[[createdBy]]`@createdBy`|`Number (Long)`|-
+|[[entityId]]`@entityId`|`Number (Long)`|-
+|[[id]]`@id`|`Number (Long)`|-
+|[[updatedAt]]`@updatedAt`|`String`|-
+|[[updatedBy]]`@updatedBy`|`Number (Long)`|-
+|===
+

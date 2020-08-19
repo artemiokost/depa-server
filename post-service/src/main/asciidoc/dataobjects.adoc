@@ -1,0 +1,127 @@
+= Cheatsheets
+
+[[Bookmark]]
+== Bookmark
+
+
+[cols=">25%,25%,50%"]
+[frame="topbot"]
+|===
+^|Name | Type ^| Description
+|[[createdAt]]`@createdAt`|`String`|-
+|[[id]]`@id`|`Number (Long)`|-
+|[[postId]]`@postId`|`Number (Long)`|-
+|[[updatedAt]]`@updatedAt`|`String`|-
+|[[userId]]`@userId`|`Number (Long)`|-
+|===
+
+[[Category]]
+== Category
+
+
+[cols=">25%,25%,50%"]
+[frame="topbot"]
+|===
+^|Name | Type ^| Description
+|[[id]]`@id`|`Number (Long)`|-
+|[[name]]`@name`|`String`|-
+|===
+
+[[Clap]]
+== Clap
+
+
+[cols=">25%,25%,50%"]
+[frame="topbot"]
+|===
+^|Name | Type ^| Description
+|[[createdAt]]`@createdAt`|`String`|-
+|[[createdBy]]`@createdBy`|`Number (Long)`|-
+|[[id]]`@id`|`Number (Long)`|-
+|[[postId]]`@postId`|`Number (Long)`|-
+|[[updatedAt]]`@updatedAt`|`String`|-
+|[[updatedBy]]`@updatedBy`|`Number (Long)`|-
+|[[value]]`@value`|`Number (Integer)`|-
+|===
+
+[[Comment]]
+== Comment
+
+
+[cols=">25%,25%,50%"]
+[frame="topbot"]
+|===
+^|Name | Type ^| Description
+|[[content]]`@content`|`String`|-
+|[[createdAt]]`@createdAt`|`String`|-
+|[[createdBy]]`@createdBy`|`Number (Long)`|-
+|[[id]]`@id`|`Number (Long)`|-
+|[[postId]]`@postId`|`Number (Long)`|-
+|[[updatedAt]]`@updatedAt`|`String`|-
+|[[updatedBy]]`@updatedBy`|`Number (Long)`|-
+|===
+
+[[Origin]]
+== Origin
+
+
+[cols=">25%,25%,50%"]
+[frame="topbot"]
+|===
+^|Name | Type ^| Description
+|[[id]]`@id`|`Number (Long)`|-
+|[[name]]`@name`|`String`|-
+|[[url]]`@url`|`String`|-
+|===
+
+[[Post]]
+== Post
+
+
+[cols=">25%,25%,50%"]
+[frame="topbot"]
+|===
+^|Name | Type ^| Description
+|[[categoryId]]`@categoryId`|`Number (Long)`|-
+|[[content]]`@content`|`String`|-
+|[[createdAt]]`@createdAt`|`String`|-
+|[[createdBy]]`@createdBy`|`Number (Long)`|-
+|[[id]]`@id`|`Number (Long)`|-
+|[[imageUrl]]`@imageUrl`|`String`|-
+|[[originId]]`@originId`|`Number (Long)`|-
+|[[pending]]`@pending`|`Boolean`|-
+|[[title]]`@title`|`String`|-
+|[[updatedAt]]`@updatedAt`|`String`|-
+|[[updatedBy]]`@updatedBy`|`Number (Long)`|-
+|[[uri]]`@uri`|`String`|-
+|[[views]]`@views`|`Number (Integer)`|-
+|===
+
+[[Tag]]
+== Tag
+
+
+[cols=">25%,25%,50%"]
+[frame="topbot"]
+|===
+^|Name | Type ^| Description
+|[[id]]`@id`|`Number (Long)`|-
+|[[name]]`@name`|`String`|-
+|===
+
+[[Vote]]
+== Vote
+
+
+[cols=">25%,25%,50%"]
+[frame="topbot"]
+|===
+^|Name | Type ^| Description
+|[[createdAt]]`@createdAt`|`String`|-
+|[[createdBy]]`@createdBy`|`Number (Long)`|-
+|[[id]]`@id`|`Number (Long)`|-
+|[[updatedAt]]`@updatedAt`|`String`|-
+|[[updatedBy]]`@updatedBy`|`Number (Long)`|-
+|[[value]]`@value`|`Boolean`|-
+|===
+

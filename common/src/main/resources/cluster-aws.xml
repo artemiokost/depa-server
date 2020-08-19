@@ -1,0 +1,19 @@
+<hazelcast xmlns="http://www.hazelcast.com/schema/config"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.hazelcast.com/schema/config
+           http://www.hazelcast.com/schema/config/hazelcast-config-3.12.xsd">
+
+    <network>
+        <interfaces enabled="true">
+            <interface>10.0.*.*</interface>
+        </interfaces>
+        <join>
+            <multicast enabled="false"/>
+            <aws enabled="true">
+                <access-key>11111111111111111111</access-key>
+                <secret-key>1111111111111111111111111111111111111111</secret-key>
+                <region>eu-central-1</region>
+            </aws>
+        </join>
+    </network>
+</hazelcast>

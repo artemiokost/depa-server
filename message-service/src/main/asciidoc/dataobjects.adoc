@@ -1,0 +1,37 @@
+= Cheatsheets
+
+[[Message]]
+== Message
+
+
+[cols=">25%,25%,50%"]
+[frame="topbot"]
+|===
+^|Name | Type ^| Description
+|[[content]]`@content`|`String`|-
+|[[createdAt]]`@createdAt`|`String`|-
+|[[createdBy]]`@createdBy`|`Number (Long)`|-
+|[[id]]`@id`|`Number (Long)`|-
+|[[recipient]]`@recipient`|`Number (Integer)`|-
+|[[updatedAt]]`@updatedAt`|`String`|-
+|[[updatedBy]]`@updatedBy`|`Number (Long)`|-
+|===
+
+[[Notification]]
+== Notification
+
+
+[cols=">25%,25%,50%"]
+[frame="topbot"]
+|===
+^|Name | Type ^| Description
+|[[content]]`@content`|`String`|-
+|[[createdAt]]`@createdAt`|`String`|-
+|[[createdBy]]`@createdBy`|`Number (Long)`|-
+|[[id]]`@id`|`Number (Long)`|-
+|[[importance]]`@importance`|`Number (Integer)`|-
+|[[recipient]]`@recipient`|`Number (Integer)`|-
+|[[updatedAt]]`@updatedAt`|`String`|-
+|[[updatedBy]]`@updatedBy`|`Number (Long)`|-
+|===
+

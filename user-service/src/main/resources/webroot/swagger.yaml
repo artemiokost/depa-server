@@ -1,0 +1,413 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: User service
+servers:
+  - url: http://api.depa.io/
+paths:
+  /static/*:
+    get:
+      operationId: getStatic
+      responses:
+        200:
+          description: static
+        default:
+          description: unexpected error
+  /{userId}:
+    put:
+      security:
+        - bearerAuth: []
+      operationId: updateById
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          description: User id
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - authInfo
+              properties:
+                authInfo:
+                  type: object
+                email:
+                  type: string
+                  nullable: true
+                username:
+                  type: string
+                  minLength: 4
+                  maxLength: 24
+                  nullable: true
+                password:
+                  type: string
+                  minLength: 8
+                  maxLength: 32
+                  nullable: true
+      responses:
+        200:
+          description: Token & user summary
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+        default:
+          description: unexpected error
+  /banned/{userId}/{value}:
+    put:
+      security:
+        - bearerAuth: []
+      operationId: updateBannedByUserId
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          description: User id
+          schema:
+            type: integer
+        - in: path
+          name: value
+          required: true
+          description: Value
+          schema:
+            type: boolean
+      responses:
+        200:
+          description: Status
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+        default:
+          description: unexpected error
+  /check/email:
+    post:
+      operationId: checkEmail
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+              properties:
+                email:
+                  type: string
+      responses:
+        200:
+          description: Status
+        default:
+          description: unexpected error
+  /check/username:
+    post:
+      operationId: checkUsername
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - username
+              properties:
+                username:
+                  type: string
+      responses:
+        200:
+          description: Status
+        default:
+          description: unexpected error
+  /confirm/email:
+    post:
+      security:
+        - bearerAuth: []
+      operationId: confirmEmail
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - token
+              properties:
+                token:
+                  type: string
+      responses:
+        200:
+          description: Status
+        default:
+          description: unexpected error
+  /confirm/recovery:
+    post:
+      operationId: confirmRecovery
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - token
+                - password
+              properties:
+                token:
+                  type: string
+                password:
+                  type: string
+      responses:
+        200:
+          description: Token & user summary
+        default:
+          description: unexpected error
+  /confirm/signUp:
+    post:
+      operationId: confirmSignUp
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - token
+              properties:
+                token:
+                  type: string
+      responses:
+        200:
+          description: Token & user summary
+        default:
+          description: unexpected error
+  /profile/{profileId}:
+    put:
+      security:
+        - bearerAuth: []
+      operationId: updateProfileById
+      parameters:
+        - in: path
+          name: profileId
+          required: true
+          description: Profile id
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                about:
+                  type: string
+                  minLength: 4
+                  nullable: true
+                birthDate:
+                  type: string
+                  minLength: 4
+                  nullable: true
+                fullName:
+                  type: string
+                  minLength: 4
+                  nullable: true
+                gender:
+                  type: string
+                  minLength: 4
+                  nullable: true
+                imageUrl:
+                  type: string
+                  minLength: 4
+                  nullable: true
+                location:
+                  type: string
+                  minLength: 4
+                  nullable: true
+      responses:
+        200:
+          description: Status
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+        default:
+          description: unexpected error
+  /recovery:
+    post:
+      operationId: recovery
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+              properties:
+                email:
+                  type: string
+      responses:
+        200:
+          description: Recovery URL was sent to email
+        default:
+          description: unexpected error
+  /signIn:
+    post:
+      operationId: signIn
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - username
+                - password
+                - rememberMe
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+                rememberMe:
+                  type: boolean
+      responses:
+        200:
+          description: Token & user summary
+        default:
+          description: unexpected error
+  /signUp:
+    post:
+      operationId: signUp
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - username
+                - password
+              properties:
+                email:
+                  type: string
+                username:
+                  type: string
+                  minLength: 4
+                  maxLength: 24
+                password:
+                  type: string
+                  minLength: 8
+                  maxLength: 32
+      responses:
+        200:
+          description: Confirmation email has been sent
+        default:
+          description: unexpected error
+  /subscription/{publisherId}:
+    post:
+      security:
+        - bearerAuth: []
+      operationId: createSubscription
+      parameters:
+        - in: path
+          name: publisherId
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Subscription
+        default:
+          description: unexpected error
+  /subscription/{subscriptionId}:
+    delete:
+      security:
+        - bearerAuth: []
+      operationId: deleteSubscriptionById
+      parameters:
+        - in: path
+          name: subscriptionId
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Status
+        default:
+          description: unexpected error
+  /subscription/page/{number}/{size}/pub/{pubId}:
+    get:
+      security:
+        - bearerAuth: []
+      operationId: getSubscriptionPageByPubId
+      parameters:
+        - in: path
+          name: number
+          required: true
+          schema:
+            type: integer
+        - in: path
+          name: size
+          required: true
+          schema:
+            type: integer
+        - in: path
+          name: pubId
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Page
+        default:
+          description: unexpected error
+  /subscription/page/{number}/{size}/sub/{subId}:
+    get:
+      security:
+        - bearerAuth: []
+      operationId: getSubscriptionPageBySubId
+      parameters:
+        - in: path
+          name: number
+          required: true
+          schema:
+            type: integer
+        - in: path
+          name: size
+          required: true
+          schema:
+            type: integer
+        - in: path
+          name: subId
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Page
+        default:
+          description: unexpected error
+  /summary/{userId}:
+    get:
+      operationId: getUserSummaryByUserId
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: User summary
+        default:
+          description: unexpected error
+components:
+  responses:
+    UnauthorizedError:
+      description: Access token is missing or invalid
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

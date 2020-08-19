@@ -1,0 +1,20 @@
+version: '3'
+services:
+  api-gateway:
+    build: ./api-gateway
+    image: artemiokost/api-gateway
+    restart: always
+    ports:
+      - 8000:8000
+  message-service:
+    build: ./message-service
+    image: artemiokost/message-service
+    restart: always
+  post-service:
+    build: ./post-service
+    image: artemiokost/post-service
+    restart: always
+  user-service:
+    build: ./user-service
+    image: artemiokost/user-service
+    restart: always

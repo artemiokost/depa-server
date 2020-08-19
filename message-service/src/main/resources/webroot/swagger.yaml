@@ -1,0 +1,34 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Message service
+servers:
+  - url: http://api.depa.io/
+paths:
+  /static/*:
+    get:
+      operationId: getStatic
+      responses:
+        200:
+          description: static
+        default:
+          description: unexpected error
+  /test:
+    get:
+      security:
+        - bearerAuth: []
+      operationId: test
+      responses:
+        200:
+          description: Test
+        default:
+          description: unexpected error
+components:
+  responses:
+    UnauthorizedError:
+      description: Access token is missing or invalid
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

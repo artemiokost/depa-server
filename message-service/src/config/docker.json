@@ -1,0 +1,23 @@
+{
+  "api.name": "message",
+  "data.source": {
+    "port": 3306,
+    "host": "localhost",
+    "database": "depa",
+    "properties": {
+      "characterEncoding": "UTF-8",
+      "serverTimezone": "UTC",
+      "useSSL": false,
+      "zeroDateTimeBehavior": "convert_to_null"
+    },
+    "driver_class": "com.mysql.cj.jdbc.Driver",
+    "user": "root",
+    "password": "root",
+    "url": "jdbc:mysql://localhost:3306/depa?characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&zeroDateTimeBehavior=convert_to_null"
+  },
+  "http.port": 8003,
+  "liquibase": {
+    "changeLogFile": "/liquibase/message/changelog.xml"
+  },
+  "open.api": "webroot/swagger.yaml"
+}

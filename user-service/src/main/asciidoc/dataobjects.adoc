@@ -1,0 +1,91 @@
+= Cheatsheets
+
+[[Profile]]
+== Profile
+
+
+[cols=">25%,25%,50%"]
+[frame="topbot"]
+|===
+^|Name | Type ^| Description
+|[[about]]`@about`|`String`|-
+|[[birthDate]]`@birthDate`|`String`|-
+|[[createdAt]]`@createdAt`|`String`|-
+|[[fullName]]`@fullName`|`String`|-
+|[[gender]]`@gender`|`String`|-
+|[[id]]`@id`|`Number (Long)`|-
+|[[imageUrl]]`@imageUrl`|`String`|-
+|[[location]]`@location`|`String`|-
+|[[updatedAt]]`@updatedAt`|`String`|-
+|[[userId]]`@userId`|`Number (Long)`|-
+|===
+
+[[Role]]
+== Role
+
+
+[cols=">25%,25%,50%"]
+[frame="topbot"]
+|===
+^|Name | Type ^| Description
+|[[id]]`@id`|`Number (Long)`|-
+|[[name]]`@name`|`String`|-
+|===
+
+[[Subscription]]
+== Subscription
+
+
+[cols=">25%,25%,50%"]
+[frame="topbot"]
+|===
+^|Name | Type ^| Description
+|[[createdAt]]`@createdAt`|`String`|-
+|[[id]]`@id`|`Number (Long)`|-
+|[[publisherId]]`@publisherId`|`Number (Long)`|-
+|[[subscriberId]]`@subscriberId`|`Number (Long)`|-
+|[[updatedAt]]`@updatedAt`|`String`|-
+|===
+
+[[User]]
+== User
+
+
+[cols=">25%,25%,50%"]
+[frame="topbot"]
+|===
+^|Name | Type ^| Description
+|[[banned]]`@banned`|`Boolean`|-
+|[[createdAt]]`@createdAt`|`String`|-
+|[[email]]`@email`|`String`|-
+|[[id]]`@id`|`Number (Long)`|-
+|[[password]]`@password`|`String`|-
+|[[passwordSalt]]`@passwordSalt`|`String`|-
+|[[updatedAt]]`@updatedAt`|`String`|-
+|[[username]]`@username`|`String`|-
+|===
+
+[[UserSummary]]
+== UserSummary
+
+
+[cols=">25%,25%,50%"]
+[frame="topbot"]
+|===
+^|Name | Type ^| Description
+|[[about]]`@about`|`String`|-
+|[[banned]]`@banned`|`Boolean`|-
+|[[birthDate]]`@birthDate`|`String`|-
+|[[createdAt]]`@createdAt`|`String`|-
+|[[email]]`@email`|`String`|-
+|[[fullName]]`@fullName`|`String`|-
+|[[gender]]`@gender`|`String`|-
+|[[imageUrl]]`@imageUrl`|`String`|-
+|[[location]]`@location`|`String`|-
+|[[profileId]]`@profileId`|`Number (Long)`|-
+|[[roles]]`@roles`|`Array of String`|-
+|[[updatedAt]]`@updatedAt`|`String`|-
+|[[userId]]`@userId`|`Number (Long)`|-
+|[[username]]`@username`|`String`|-
+|===
+

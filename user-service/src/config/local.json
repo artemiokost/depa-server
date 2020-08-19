@@ -1,0 +1,37 @@
+{
+  "api.name": "user",
+  "aws": {
+    "s3.region": "us-east-1",
+    "s3.accessKey": "11111111111111111111",
+    "s3.secretKey": "1111111111111111111111111111111111111111",
+    "s3.bucket": {
+      "cdn": "cdn.depa.io",
+      "config": "config.depa.io"
+    },
+    "smtp.port": 587,
+    "smtp.hostname": "email-smtp.eu-central-1.amazonaws.com",
+    "smtp.username": "11111111111111111111",
+    "smtp.password": "11111111111111111111111111111111111111111111"
+  },
+  "data.source": {
+    "port": 3306,
+    "host": "localhost",
+    "database": "depa",
+    "properties": {
+      "characterEncoding": "UTF-8",
+      "serverTimezone": "UTC",
+      "useSSL": false,
+      "zeroDateTimeBehavior": "convert_to_null"
+    },
+    "driver_class": "com.mysql.cj.jdbc.Driver",
+    "user": "root",
+    "password": "root",
+    "url": "jdbc:mysql://localhost:3306/depa?characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&zeroDateTimeBehavior=convert_to_null"
+  },
+  "http.host": "localhost",
+  "http.port": 8001,
+  "liquibase": {
+    "changeLogFile": "/liquibase/user/changelog.xml"
+  },
+  "open.api": "user-service/src/main/resources/webroot/swagger.yaml"
+}

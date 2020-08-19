@@ -1,0 +1,13 @@
+{
+  "http.host": "localhost",
+  "http.port": 443,
+  "circuit-breaker": {
+    "name": "api-gateway-cb",
+    "reset-timeout": 8000,
+    "timeout": 4000,
+    "max-failures": 4
+  },
+  "policy.cors": "(.*)localhost:3000|(.*)depa.io",
+  "ssl.crt": "tls/server.crt",
+  "ssl.key": "tls/server.key"
+}

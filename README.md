@@ -1,8 +1,7 @@
-Depa project server
+Depa project server (API-Gateway, Message-Service, Post-Service, User-Service)
 
 ---
 
 ## About
 
-Services: API-Gateway, Message-Service, Post-Service, User-Service;
 Stack: Vert.X, RxJava, Huzelcust;

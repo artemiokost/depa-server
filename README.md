@@ -4,4 +4,4 @@ Depa project server (API-Gateway, Message-Service, Post-Service, User-Service)
 
 ## About
 
-Stack: Vert.X, RxJava, Huzelcust;
+Stack: Vert.X, RxJava, Hazelcast, etc;
